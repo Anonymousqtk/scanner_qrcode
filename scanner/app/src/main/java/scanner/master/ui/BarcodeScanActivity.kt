@@ -117,12 +117,12 @@ class BarcodeScanningActivity : AppCompatActivity() {
             }, delay)
             return handler
         }
-        binding.webview.visibility = View.GONE;
+        //binding.webview.visibility = View.GONE;
         //switch the analyzers here, i.e. MLKitBarcodeAnalyzer, ZXingBarcodeAnalyzer
         class ScanningListener : ScanningResultListener {
             override fun onScanned(result: String) {
-                binding.txtLayout.visibility = View.VISIBLE;
-                binding.webview.visibility = View.VISIBLE;
+                //binding.txtLayout.visibility = View.VISIBLE;
+                //binding.webview.visibility = View.VISIBLE;
                 val delay = 5000L
                 var data_rs = binding.edtResult.getText().toString();
                 var counter = 0;
@@ -161,7 +161,7 @@ class BarcodeScanningActivity : AppCompatActivity() {
             bindPreview(cameraProvider, lensFacing)
         }
         if (camera?.cameraInfo?.hasFlashUnit() == true) {
-            binding.imgflash.visibility = View.VISIBLE
+            //binding.imgflash.visibility = View.VISIBLE
             binding.imgflash.setOnClickListener {
                 camera.cameraControl.enableTorch(!flashEnabled)
             }
@@ -185,12 +185,12 @@ class BarcodeScanningActivity : AppCompatActivity() {
         connectivityLiveData= ConnectivityLiveData(application)
         connectivityLiveData.observe(this, Observer {isAvailable->
             if(isAvailable){
-                binding.lnLow.visibility = View.GONE
+                //binding.lnLow.visibility = View.GONE
                 //binding.webview.visibility = View.VISIBLE
                 binding.webview.loadUrl("https://dantri.com.vn/")
             }else{
                 //binding.webview.visibility = View.GONE
-                binding.lnLow.visibility = View.VISIBLE
+                //binding.lnLow.visibility = View.VISIBLE
                 Toast.makeText(this@BarcodeScanningActivity, "Không có kết nối mạng!" , Toast.LENGTH_SHORT).show()
                 return@Observer;
             }
